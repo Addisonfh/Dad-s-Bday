@@ -1,6 +1,6 @@
-# Mom's Mother's Day Site 💖
+# Dad's Birthday Site 💖
 
-A little static site for Mom. No build step, no dependencies — just open `index.html`.
+A little static site for Dad. No build step, no dependencies — just open `index.html`.
 
 ## Adding a memory to the timeline
 
