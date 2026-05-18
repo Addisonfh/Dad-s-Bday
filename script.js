@@ -3,18 +3,18 @@
   const layer = document.querySelector(".doodles");
   if (!layer) return;
 
-  const stickers = ["💖", "💕", "⭐", "🌟", "🌸", "🌼", "😊", "🌈", "✨", "🦋", "💐"];
+  const doodles = ["🐟", "🐠", "🐡", "🎂", "🎉", "🎈", "🪼"];
 
-  function spawn() {
-    const el = document.createElement("span");
-    el.className = "doodle";
-    el.textContent = stickers[Math.floor(Math.random() * stickers.length)];
-    el.style.left = Math.random() * 100 + "vw";
-    el.style.fontSize = 1.1 + Math.random() * 1.8 + "rem";
-    el.style.animationDuration = 9 + Math.random() * 9 + "s";
-    layer.appendChild(el);
-    setTimeout(() => el.remove(), 18000);
-  }
+function spawn() {
+  const el = document.createElement("span");
+  el.className = "doodle";
+  el.textContent = doodles[Math.floor(Math.random() * doodles.length)];
+  el.style.left = Math.random() * 100 + "vw";
+  el.style.fontSize = 1.1 + Math.random() * 1.8 + "rem";
+  el.style.animationDuration = 9 + Math.random() * 9 + "s";
+  layer.appendChild(el);
+  setTimeout(() => el.remove(), 18000);
+}
 
   setInterval(spawn, 700);
   for (let i = 0; i < 10; i++) setTimeout(spawn, i * 180);

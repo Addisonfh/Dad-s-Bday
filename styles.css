@@ -1,14 +1,14 @@
 :root {
-  --pink:    #ff4d8d;
-  --pink-2:  #ff8ab8;
-  --paper:   #ffd9e3;
-  --paper-2: #ffe6c2;
+  --pink:    #157bb8;
+  --pink-2:  #5bc0eb;
+  --paper:   #bfefff;
+  --paper-2: #dff7ff;
   --yellow:  #ffd84d;
   --blue:    #4dc3ff;
-  --green:   #5fd16b;
-  --purple:  #b07dff;
-  --orange:  #ff9c3d;
-  --ink:     #3b2a52;
+  --green:   #3ec1a3;
+  --purple:  #1b4965;
+  --orange:  #7fdfff;
+  --ink:     #16324f;
   --crayon-shadow: 1px 2px 0 rgba(0,0,0,0.08), 2px 4px 0 rgba(0,0,0,0.05);
 }
 
@@ -24,13 +24,32 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 
-  /* Construction-paper feel: warm pink base + tiny fiber dots */
   background-color: var(--paper);
   background-image:
     radial-gradient(circle at 20% 30%, rgba(255,255,255,0.45) 1px, transparent 1.5px),
     radial-gradient(circle at 70% 60%, rgba(0,0,0,0.04) 1px, transparent 1.5px),
     radial-gradient(circle at 40% 80%, rgba(255,255,255,0.35) 1px, transparent 1.5px);
+
   background-size: 7px 7px, 11px 11px, 9px 9px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background:
+    repeating-linear-gradient(
+      120deg,
+      rgba(255,255,255,0.00) 0px,
+      rgba(255,255,255,0.00) 30px,
+      rgba(255,255,255,0.08) 45px,
+      rgba(255,255,255,0.00) 60px
+    );
+
+  animation: shimmer 12s linear infinite;
 }
 
 /* ---------- Doodles layer (floating stickers) ---------- */
@@ -86,13 +105,13 @@ body {
   transform-origin: 50% 80%;
 }
 
-/* Crayon-box colors */
-.c1 { --c: #ff4d8d; }
-.c2 { --c: #ff9c3d; }
-.c3 { --c: #ffc73d; }
-.c4 { --c: #5fd16b; }
+/* Ocean colors */
+.c1 { --c: #157bb8; }
+.c2 { --c: #5bc0eb; }
+.c3 { --c: #7fdfff; }
+.c4 { --c: #3ec1a3; }
 .c5 { --c: #4dc3ff; }
-.c6 { --c: #b07dff; }
+.c6 { --c: #1b4965; }
 
 /* Stagger the wiggle so letters don't move in sync */
 .ltr:nth-child(1)  { animation-delay: 0.0s;  transform: rotate(-6deg); }
@@ -116,6 +135,16 @@ body {
 @keyframes wiggle {
   0%, 100% { transform: rotate(var(--r, -3deg)) translateY(0); }
   50%      { transform: rotate(var(--r, -3deg)) translateY(-6px); }
+}
+
+@keyframes shimmer {
+  from {
+    transform: translateX(-200px);
+  }
+
+  to {
+    transform: translateX(200px);
+  }
 }
 
 .hero-subtitle {
